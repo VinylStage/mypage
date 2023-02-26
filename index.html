@@ -86,16 +86,27 @@
 
             margin-top: 20px;
         }
-        .mybtn >button {
+
+        .mybtn>button {
             margin-right: 10px;
         }
     </style>
+    <script>
+        $(document).ready(function() {
+            fetch("http://spartacodingclub.shop/sparta_api/weather/seoul").then(res => res.json()).then(data => {
+                let temp = data['temp']
+                $('#temp').text(temp)
+
+                })
+        })
+    </script>
 </head>
 
 <body>
     <div class="mytitle">
         <h1>내 생애 최고의 영화들</h1>
-        <button>영화 기록하기</button>
+        <div>현재 서울의 날씨 : <span id="temp">20</span>도</div>
+        <button onclick="hey()">영화 기록하기</button>
     </div>
     <div class="mypost">
         <div class="form-floating mb-3">
@@ -105,14 +116,14 @@
         <div class="input-group mb-3">
             <label class="input-group-text" for="inputGroupSelect01">별점</label>
             <select class="form-select" id="inputGroupSelect01">
-              <option selected>--선택하기--</option>
-              <option value="1">⭐</option>
-              <option value="2">⭐⭐</option>
-              <option value="3">⭐⭐⭐</option>
-              <option value="4">⭐⭐⭐⭐</option>
-              <option value="5">⭐⭐⭐⭐⭐</option>
+                <option selected>--선택하기--</option>
+                <option value="1">⭐</option>
+                <option value="2">⭐⭐</option>
+                <option value="3">⭐⭐⭐</option>
+                <option value="4">⭐⭐⭐⭐</option>
+                <option value="5">⭐⭐⭐⭐⭐</option>
             </select>
-          </div>
+        </div>
         <div class="form-floating">
             <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea"></textarea>
             <label for="floatingTextarea">코멘트</label>
@@ -138,7 +149,7 @@
             </div>
             <div class="col">
                 <div class="card h-100">
-                    <img src="https://w.namu.la/s/beacde6b14b8c831acefb1e384db8f777518b32ccfe756a7c423e8eb5ae96e787c94068f7982da7e29322db583c3db9d3115d5c8673dcd5f4b1884f9d804ce4067e0ac98592336db9eb81854464710648b49ae2606c404b75b7df87ab036b8f10bb1007768ed7db9fea7b2774f7c764a"
+                    <img src="https://www.themoviedb.org/t/p/original/vGx513CcEHu44Eo9IujqTO9VnWk.jpg"
                         class="card-img-top" alt="...">
                     <div class="card-body">
                         <h5 class="card-title">나는 내일, 어제의 너와 만난다</h5>
